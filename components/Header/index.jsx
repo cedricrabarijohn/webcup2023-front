@@ -255,6 +255,11 @@ export default function Header({ variant }) {
                         Commencez maintenant
                       </Link>
                     </li>
+                    <li>
+                      <Link href="/ai" onClick={() => setMobileToggle(false)}>
+                        Onirix
+                      </Link>
+                    </li>
                   </ul>
                   <span
                     className={

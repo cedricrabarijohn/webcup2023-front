@@ -1,0 +1,65 @@
+@keyframes jump {
+    from{
+        transform: translateY(0px);
+    }
+
+    to{
+        transform: translateY(-16px);
+    }
+}
+
+@keyframes pop {
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes from-right {
+    from{
+        transform: scale(0%);
+    }
+
+    to{
+        transform: scale(100%);
+    }
+}
+
+@keyframes pulse {
+    from{
+        box-shadow: 0px 0px 50px $white;    
+    } 
+
+    to {
+        box-shadow: 0px 0px 50px rgba($white,0.5);
+    }
+}
+
+@keyframes slide-left {
+    100% {
+        left: 10px;
+        transform: scale(50%);
+    }
+}
+    
+@keyframes slide-restore {
+    0%{
+        left: 10px;
+        transform: scale(50%);
+    }
+    100% {
+        left: calc(50% - 700px/2);
+        transform: scale(100%);
+    }
+}
+
+.card-anim{
+    animation: jump 1000ms alternate infinite;
+
+    &:hover{
+        animation: pop 1500ms alternate infinite;
+    }
+}

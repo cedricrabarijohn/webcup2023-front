@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import SocialWidget from '../Widget/SocialWidget';
-import Newsletter from '../Widget/Newsletter';
-import ContactInfoWidget from '../Widget/ContactInfoWidget';
-import Div from '../Div';
-import DropDown from './DropDown';
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import SocialWidget from "../Widget/SocialWidget";
+import Newsletter from "../Widget/Newsletter";
+import ContactInfoWidget from "../Widget/ContactInfoWidget";
+import Div from "../Div";
+import DropDown from "./DropDown";
+import Link from "next/link";
+import Head from "next/head";
 
 export default function Header({ variant }) {
   const [isSticky, setIsSticky] = useState(false);
   const [sideHeaderToggle, setSideHeaderToggle] = useState(false);
   const [mobileToggle, setMobileToggle] = useState(false);
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
         setIsSticky(true);
       } else {
@@ -22,10 +23,16 @@ export default function Header({ variant }) {
 
   return (
     <>
+      <Head>
+        <link
+          href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          rel="stylesheet"
+        />
+      </Head>
       <header
         className={`cs-site_header cs-style1 text-uppercase ${
-          variant ? variant : ''
-        } cs-sticky_header ${isSticky ? 'cs-sticky_header_active' : ''}`}
+          variant ? variant : ""
+        } cs-sticky_header ${isSticky ? "cs-sticky_header_active" : ""}`}
       >
         <Div className="cs-main_header">
           <Div className="container">
@@ -39,7 +46,7 @@ export default function Header({ variant }) {
                 <Div className="cs-nav cs-primary_font cs-medium">
                   <ul
                     className="cs-nav_list"
-                    style={{ display: `${mobileToggle ? 'block' : 'none'}` }}
+                    style={{ display: `${mobileToggle ? "block" : "none"}` }}
                   >
                     <li className="menu-item-has-children">
                       <Link href="/" onClick={() => setMobileToggle(false)}>
@@ -111,7 +118,7 @@ export default function Header({ variant }) {
                         About
                       </Link>
                     </li>
-                    <li className="menu-item-has-children">
+                    {/* <li className="menu-item-has-children">
                       <Link
                         href="/service"
                         onClick={() => setMobileToggle(false)}
@@ -240,13 +247,20 @@ export default function Header({ variant }) {
                           </li>
                         </ul>
                       </DropDown>
+                    </li> */}
+                    <li>
+                      <Link href="app" className="commencer" style={{
+                        borderRadius: 20
+                      }} onClick={() => setMobileToggle(false)}>
+                        Commencez maintenant
+                      </Link>
                     </li>
                   </ul>
                   <span
                     className={
                       mobileToggle
-                        ? 'cs-munu_toggle cs-toggle_active'
-                        : 'cs-munu_toggle'
+                        ? "cs-munu_toggle cs-toggle_active"
+                        : "cs-munu_toggle"
                     }
                     onClick={() => setMobileToggle(!mobileToggle)}
                   >
@@ -276,7 +290,7 @@ export default function Header({ variant }) {
 
       <Div
         className={
-          sideHeaderToggle ? 'cs-side_header active' : 'cs-side_header'
+          sideHeaderToggle ? "cs-side_header active" : "cs-side_header"
         }
       >
         <button

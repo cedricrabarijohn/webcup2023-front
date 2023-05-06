@@ -3,8 +3,8 @@ import Div from '../Div';
 
 export default function Portfolio({ href, src, title, subtitle, variant }) {
   return (
-    <Link
-      href={href}
+    <div
+      // href={href}
       className={`cs-portfolio cs-bg ${variant ? variant : 'cs-style1'}`}
     >
       <>
@@ -19,6 +19,6 @@ export default function Portfolio({ href, src, title, subtitle, variant }) {
           <Div className="cs-portfolio_subtitle">{subtitle}</Div>
         </Div>
       </>
-    </Link>
+    </div>
   );
 }

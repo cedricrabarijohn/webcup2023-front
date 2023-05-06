@@ -12,7 +12,7 @@ export default function VerticalLinks({ title, data, variant }) {
         <ul className="cs-hero_social_links">
           {data.map((item, index) => (
             <li key={index}>
-              <a href={item.links}>{item.name}</a>
+              {item.name}
             </li>
           ))}
         </ul>

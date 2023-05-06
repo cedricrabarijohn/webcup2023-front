@@ -16,8 +16,13 @@ const DREAM_TYPES = {
   GOOD_DREAM: "0 - 18 ans",
   BAD_DREAM: "18 ans +",
 };
-
-export default function App() {
+export async function getServerSideProps() {
+  return { props: { 
+    api_key: process.env.API_KEY,
+    test: 'test'
+   } };
+}
+export default function App({api_key, test}) {
   const typewriterRef = useRef(null);
   const dreamTypeRef = useRef(null);
   const [gender, setGender] = useState("");
@@ -90,7 +95,7 @@ export default function App() {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer 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",
+              `Bearer ${api_key}`,
           },
           body: JSON.stringify(data),
         });
@@ -104,7 +109,6 @@ export default function App() {
           const interpretation = content.interpretation;
           const cauchemar = content.cauchemar;
           const emotions = content.emotions;
-          console.log(content);
           setResult({
             interpretation: interpretation,
             cauchemar: cauchemar,
@@ -376,7 +380,7 @@ export default function App() {
                           display: currentIndex > 0 ? "block" : "none",
                         }}
                         onClick={() => {
-                          navigateForm();
+                          setCurrentIndex(currentIndex - 1)
                         }}
                       >
                         <Icon icon="bi:arrow-left" />

@@ -6,27 +6,27 @@ import Slider from 'react-slick';
 export default function PortfolioSlider() {
   const portfolioData = [
     {
-      title:'Colorful Art Work',
-      subtitle:'See Details',
-      href:'/portfolio/portfolio-details',
+      title:"Rabarijohn Tiana Cedric",
+      subtitle:'Capitaine',
+      href:'#',
       src:'/images/portfolio_1.jpeg'
     },
     {
-      title:'Colorful Art Work',
-      subtitle:'See Details',
-      href:'/portfolio/portfolio-details',
+      title:'Rakotonjanahary Tsantaniaina',
+      subtitle:'Développeur backend',
+      href:'#',
       src:'/images/portfolio_2.jpeg'
     },
     {
-      title:'Colorful Art Work',
-      subtitle:'See Details',
-      href:'/portfolio/portfolio-details',
+      title:"RAZAFINDRATOVONORINA Idealy",
+      subtitle:'Développeur frontend et intégrateur',
+      href:'#',
       src:'/images/portfolio_0.jpg'
     },
     {
-      title:'Colorful Art Work',
-      subtitle:'See Details',
-      href:'/portfolio/portfolio-details',
+      title:'RANDRIAMAHEFA Fanantenana',
+      subtitle:'Développeur frontend et intégrateur',
+      href:'#',
       src:'/images/portfolio_3.jpeg'
     }
   ]

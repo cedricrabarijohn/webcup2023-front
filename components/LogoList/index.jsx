@@ -4,23 +4,31 @@ import Div from '../Div';
 export default function LogoList() {
   const partnerLogos = [
     {
-      src: '/images/partner_1.svg',
+      src: '/images/partners/actic.png',
       alt: 'Partner',
     },
     {
-      src: '/images/partner_2.svg',
+      src: '/images/partners/finam.png',
       alt: 'Partner',
     },
     {
-      src: '/images/partner_3.svg',
+      src: '/images/partners/french-tech-mayotte.png',
       alt: 'Partner',
     },
     {
-      src: '/images/partner_4.svg',
+      src: '/images/partners/havana.png',
       alt: 'Partner',
     },
     {
-      src: '/images/partner_5.svg',
+      src: '/images/partners/hodi.png',
+      alt: 'Partner',
+    },
+    {
+      src: '/images/partners/mayotte-in-tech.png',
+      alt: 'Partner',
+    },
+    {
+      src: '/images/partners/webcup.png',
       alt: 'Partner',
     },
   ];

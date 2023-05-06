@@ -12,6 +12,7 @@
     "@iconify/react": "^4.1.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
+    "dotenv": "^16.0.3",
     "html-react-parser": "^3.0.9",
     "next": "13.2.1",
     "react": "18.2.0",

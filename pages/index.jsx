@@ -98,7 +98,7 @@ export default function Home() {
               <Div className="col-xl-8">
                 <Div className="row">
                   <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-                  <Div className="col-lg-3 col-sm-6">
+                  <Div className="col-lg-3 col-sm-6 card-anim">
                     <Card
                       title="UI/UX design"
                       link="/service/service-details"
@@ -108,7 +108,7 @@ export default function Home() {
                     <Spacing lg="0" md="30" />
                   </Div>
                   <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-                  <Div className="col-lg-3 col-sm-6">
+                  <Div className="col-lg-3 col-sm-6 card-anim">
                     <Card
                       title="React.js Development"
                       link="/service/service-details"
@@ -117,7 +117,7 @@ export default function Home() {
                     />
                     <Spacing lg="0" md="30" />
                   </Div>
-                  <Div className="col-lg-3 col-sm-6">
+                  <Div className="col-lg-3 col-sm-6 card-anim">
                     <Card
                       title="Digital Marketing"
                       link="/service/service-details"
@@ -127,7 +127,7 @@ export default function Home() {
                     <Spacing lg="0" md="30" />
                   </Div>
                   <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-                  <Div className="col-lg-3 col-sm-6">
+                  <Div className="col-lg-3 col-sm-6 card-anim">
                     <Card
                       title="Technology"
                       link="/service/service-details"

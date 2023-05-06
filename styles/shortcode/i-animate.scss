@@ -1,0 +1,27 @@
+@keyframes jump {
+    from{
+        transform: translateY(0px);
+    }
+
+    to{
+        transform: translateY(-16px);
+    }
+}
+
+@keyframes pop {
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(20deg);
+    }
+}
+
+.card-anim{
+    animation: jump 1000ms alternate infinite;
+
+    &:hover{
+        animation: pop 1500ms alternate infinite;
+    }
+}

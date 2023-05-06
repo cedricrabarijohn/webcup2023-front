@@ -241,6 +241,11 @@ export default function Header({ variant }) {
                         </ul>
                       </DropDown>
                     </li>
+                    <li>
+                      <Link href="/ai" onClick={() => setMobileToggle(false)}>
+                        Onirix
+                      </Link>
+                    </li>
                   </ul>
                   <span
                     className={

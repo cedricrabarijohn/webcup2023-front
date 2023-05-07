@@ -32,7 +32,7 @@ export default function Blog() {
       href: '/blog/blog-details',
     },
     {
-      thumb: '/images/post_6.jpeg',
+      thumb: '/images/profit.jfif',
       title: 'Rêves lucides : comment les provoquer et en tirer profit',
       subtitle:
         "Les rêves lucides sont des rêves dans lesquels nous sommes conscients que nous rêvons et avons le contrôle sur notre environnement onirique. Ils peuvent être une source d'inspiration, de créativité et d'apprentissage personnel. Découvrez les techniques pour induire des rêves lucides et comment les exploiter pour améliorer votre vie éveillée.",
@@ -40,7 +40,8 @@ export default function Blog() {
       category: 'Psychologie',
       categoryHref: '/blog',
       href: '/blog/blog-details',
-    },{
+    },
+    {
       thumb: '/images/post_7.jpeg',
       title: 'Les symboles communs dans les rêves et leur signification',
       subtitle:

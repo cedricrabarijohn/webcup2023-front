@@ -58,31 +58,33 @@ export default function Home() {
       </Head>
       <Layout>
         {/* Start Hero Section */}
-        <Hero
-          title="At-Hack <br />XPerience"
-          subtitle="Explorez le monde fascinant de vos rêves avec notre IA prédictive, offrant des insights uniques pour décrypter vos nuits et révéler les mystères oniriques"
-          btnText="Commencez maintenant"
-          btnLink="/app"
-          socialLinksHeading="Innovation"
-          heroSocialLinks={heroSocialLinks}
-          bgImageUrl="/images/hero_bg.jpeg"
-        />
+        <div data-aos="fade-right">
+          <Hero
+            title="At-Hack <br />XPerience"
+            subtitle="Explorez le monde fascinant de vos rêves avec notre IA prédictive, offrant des insights uniques pour décrypter vos nuits et révéler les mystères oniriques"
+            btnText="Découvrez Onirix"
+            btnLink="/app"
+            socialLinksHeading="Innovation"
+            heroSocialLinks={[heroSocialLinks]}
+            bgImageUrl="/images/hero_bg.jpeg"
+          />
+        </div>
         {/* End Hero Section */}
 
         {/* Start FunFact Section */}
-        {/* <div className="container">
+        <div className="container" data-aos="fade">
           <FunFact
             variant="cs-type1"
             title="Nos faits"
             subtitle="Découvrez les faits fascinants sur le monde des rêves grâce à notre IA prédictive, offrant des analyses approfondies pour mieux comprendre cette dimension mystérieuse de notre esprit."
             data={funfaceData}
           />
-        </div> */}
+        </div>
         {/* End FunFact Section */}
 
         {/* Start Service Section */}
         <Spacing lg="150" md="80" />
-        <Div id="service">
+        <Div id="service" style={{}} data-aos="fade-right">
           <Div className="container">
             <Div className="row">
               <Div className="col-xl-4">
@@ -101,7 +103,7 @@ export default function Home() {
                     <Card
                       title="Interpretation de rêves"
                       link="/service/service-details"
-                      src="/images/service_1.jpeg"
+                      src="/images/services/interpretation.jfif"
                       alt="Service"
                     />
                     <Spacing lg="0" md="30" />
@@ -109,9 +111,9 @@ export default function Home() {
                   <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
                   <Div className="col-lg-3 col-sm-6">
                     <Card
-                      title="Suggestions"
+                      title="Conseils"
                       link="/service/service-details"
-                      src="/images/service_2.jpeg"
+                      src="/images/services/conseils.jfif"
                       alt="Service"
                     />
                     <Spacing lg="0" md="30" />
@@ -120,7 +122,7 @@ export default function Home() {
                     <Card
                       title="Analyses de rêves"
                       link="/service/service-details"
-                      src="/images/service_3.jpeg"
+                      src="/images/services/analyse.jfif"
                       alt="Service"
                     />
                     <Spacing lg="0" md="30" />
@@ -130,7 +132,7 @@ export default function Home() {
                     <Card
                       title="Analyse émotionnelle"
                       link="/service/service-details"
-                      src="/images/service_4.jpeg"
+                      src="/images/services/analyse_emotionel.jfif"
                       alt="Service"
                     />
                     <Spacing lg="0" md="30" />
@@ -145,7 +147,7 @@ export default function Home() {
 
         {/* Start Portfolio Section */}
         <Spacing lg="150" md="50" />
-        <Div>
+        <Div data-aos="zoom-in">
           <Div className="container">
             <SectionHeading
               title="Notre équipe"
@@ -216,8 +218,8 @@ export default function Home() {
         {/* End Testimonial Section */}
 
         {/* Start Blog Section */}
-        <Spacing lg="150" md="80" />
-        <Div className="cs-shape_wrap_4">
+        {/* <Spacing lg="150" md="80" /> */}
+        {/* <Div className="cs-shape_wrap_4">
           <Div className="cs-shape_4"></Div>
           <Div className="cs-shape_4"></Div>
           <Div className="container">
@@ -238,7 +240,7 @@ export default function Home() {
               </Div>
             </Div>
           </Div>
-        </Div>
+        </Div> */}
         {/* End Blog Section */}
 
         {/* Start MovingText Section */}

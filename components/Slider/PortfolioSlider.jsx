@@ -9,25 +9,25 @@ export default function PortfolioSlider() {
       title:"Rabarijohn Tiana Cedric",
       subtitle:'Capitaine',
       href:'#',
-      src:'/images/portfolio_1.jpeg'
+      src:'/images/team/cedric.jpg'
     },
     {
       title:'Rakotonjanahary Tsantaniaina',
       subtitle:'Développeur backend',
       href:'#',
-      src:'/images/portfolio_2.jpeg'
+      src:'/images/team/tsanta.jpg'
     },
     {
       title:"RAZAFINDRATOVONORINA Idealy",
       subtitle:'Développeur frontend et intégrateur',
       href:'#',
-      src:'/images/portfolio_0.jpg'
+      src:'/images/team/idealy.jpg'
     },
     {
       title:'RANDRIAMAHEFA Fanantenana',
       subtitle:'Développeur frontend et intégrateur',
       href:'#',
-      src:'/images/portfolio_3.jpeg'
+      src:'/images/team/fanantenana.jpg'
     }
   ]
   

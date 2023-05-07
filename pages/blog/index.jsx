@@ -22,7 +22,7 @@ export default function Blog() {
       href: '/blog/blog-details',
     },
     {
-      thumb: '/images/post_5.jpeg',
+      thumb: '/images/recurrent.jfif',
       title: "Rêves récurrents : pourquoi nous reviennent-ils et comment les comprendre ?",
       subtitle:
         "Les rêves récurrents sont ceux qui se répètent fréquemment avec des thèmes, des scénarios ou des personnages similaires. Ils peuvent être le signe d'un problème non résolu ou d'une situation qui requiert notre attention. Apprenez à identifier les causes de vos rêves récurrents et à comprendre leur signification pour vous aider à résoudre les problèmes sous-jacents et à améliorer votre bien-être.",

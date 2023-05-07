@@ -2,8 +2,10 @@ import Div from '../../components/Div';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import Word from "../../components/Word";
-import React, { useRef,useState } from "react";
-import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax'
+import React, { useRef,useState, useEffect } from "react";
+import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
+import Typewriter from "typewriter-effect/dist/core";
+import Button from "../../components/Button";
 
 const CustomCursor = dynamic(
     () => {
@@ -13,21 +15,42 @@ const CustomCursor = dynamic(
 );
 
 export default function AI() {
-    const [word] = useState("Hello");
-    const [valiny] = useState("Valiny");
+    const [username, setUsername] = useState("World");
+    const [description, setDescription] = useState("Bonjour, je suis Onirix ! Je suis heureux de faire votre connaissance et de vous aider à interpréter les rêves des gens. Grâce à mes capacités d'analyse sophistiquées, je peux vous aider à prédire les événements à venir dans les rêves d'une personne et à identifier les thèmes récurrents et les tendances. Je suis particulièrement utile pour les psychologues, les thérapeutes et les chercheurs qui étudient les rêves et leur signification. N'hésitez pas à me poser des questions ou à me demander de l'aide pour interpréter les rêves que vous rencontrez. Je suis là pour vous aider ! ");
+    const [interpretation, setInterpretation] = useState("...");
+    const [result, setResult] = useState("...");
+    const [conseil, setConseil] = useState("...");
+
+
     const [clicked, setClicked] = useState(false);
 
-    const ref = useRef();
+    const ref = useRef(null);
+    const element = useRef(null);
 
-    const hello = ()=>{
-        // let sphere = document.getElementById("sphere");
-        // if(!clicked){
-        //     sphere.style = "animation: slide-left 1000ms forwards;"; 
-        // } else {
-        //     sphere.style = "animation: slide-restore 1000ms forwards;";
-        // }
-        // setClicked(!clicked);
-    }
+    useEffect(() => {
+        const info = JSON.parse(localStorage.getItem("information"));
+        const result = JSON.parse(info.result.choices[0].message.content);
+
+        console.log(result)
+
+        setUsername(info.firstname + " " + info.lastname);
+        setDescription("Voici est la description que vous avez raconter : " + ". \"" + info.description +"\"");
+        setInterpretation(result.interpretation);
+        setConseil(result.conseil);
+
+        const typewriter = new Typewriter(element.current, {
+          loop: true,
+          delay: 75,
+        });
+    
+        typewriter
+          .typeString('Hello World!')
+          .start();
+    
+        return () => {
+          typewriter.stop();
+        };
+      }, []);
 
     return(
         <>
@@ -38,34 +61,77 @@ export default function AI() {
             </Head>
             <CustomCursor />
             
-            <Parallax pages={4} ref={ref}>
+            <Parallax pages={3} ref={ref} horizontal>
                 <ParallaxLayer
                     style={{
                         background: `linear-gradient(180deg, #2b2e4a 0%, #1f2233 100%)`,
                     }}
                     speed={0.5}
-                    factor={3}
+                    // factor={}
                 >
                 </ParallaxLayer>
 
                 <ParallaxLayer
-                    sticky={{start:0, end:3}}
                     onClick={()=>ref.current.scrollTo(2)}
                 >
                     <Div className="sphere">
-                        <Word word={word} predict={hello}/>
+                        {/* <Word word={word} predict={hello}/> */}
                     </Div>
+
+                    <Div className="answer">
+                        <h5 className="text-center">Hello {username}!</h5>
+                        <div style={{
+                            lineHeight: 1.7,
+                            maxWidth: "75ch",
+                        }}>
+                            <p>Bonjour, je suis Onirix !</p>
+                            {description}
+                        </div>
+
+                        <div className="m-top">
+                            <Button btnText='Decouvrez votre reve'/>
+                        </div>
+                        {/* <Word word={word} predict={hello}/> */}
+                    </Div>
+                </ParallaxLayer>
+
+                <ParallaxLayer
+                    offset={1}
+                    style={{
+                        background: `linear-gradient(to bottom right, #000000, #330000)`,
+                    }}
+                    speed={0.5}
+                >
                 </ParallaxLayer>
 
                 <ParallaxLayer
                     offset={2}
                     style={{
-                        background: `linear-gradient(180deg, #0c0d20 0%, #4f4f4f 50%, #1e1e1e 100%)`,
+                        background: `linear-gradient(to bottom, #c7d6ff, #e4c1f9)`,
                     }}
                     speed={0.5}
-                    factor={3}
+                    // factor={3}
                 >
-                    
+                    <Div className="answer">
+                        <h4 className="text-center">Voici la prédiction de votre rêve</h4>
+                        <div style={{
+                            lineHeight: 1.7,
+                            maxWidth: "75ch",
+                        }}>
+                            {!result?.cauchemar && (
+                                <h5>Mais quel cauchemar vous avez fait !</h5>
+                            )}
+
+                            {result?.cauchemar && (
+                                <h5>Quel beau rêve !!!</h5>
+                            )}
+                            
+                            {interpretation}
+
+                            <h5 className='m-top'>Voici ma conseil</h5>
+                            <p>{conseil}</p>
+                        </div>
+                    </Div>
                 </ParallaxLayer>
             </Parallax>
             {/* <Div id="onirix" className="onirix"> */}

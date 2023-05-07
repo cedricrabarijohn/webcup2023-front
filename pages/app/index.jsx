@@ -125,7 +125,7 @@ export default function App({ api_key, test }) {
         console.log(result)
 
         try {
-          const message = result.choices[0].message;
+          const message = result.choices[0].message;  
           const content = JSON.parse(message.content);
           const interpretation = content.interpretation;
           const cauchemar = content.cauchemar;
@@ -137,6 +137,8 @@ export default function App({ api_key, test }) {
             emotions: emotions,
             conseil: conseil,
           });
+
+          localStorage.setItem("information", JSON.stringify({description: description,firstname:firstname, lastname:lastname,dreamType:dreamType, result:result}));
         } catch (err) {}
       } catch (error) {
         console.error("Error:", error);
@@ -146,6 +148,7 @@ export default function App({ api_key, test }) {
     callApi();
     console.log(formatDatas());
   };
+
   const FORMULAIRE = [
     {
       label: "Etes-vous un homme ou une femme",

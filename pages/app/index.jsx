@@ -17,14 +17,17 @@ const DREAM_TYPES = {
   BAD_DREAM: "18 ans +",
 };
 export async function getServerSideProps() {
-  return { props: { 
-    api_key: process.env.API_KEY,
-    test: 'test'
-   } };
+  return {
+    props: {
+      api_key: process.env.API_KEY,
+      test: "test",
+    },
+  };
 }
-export default function App({api_key, test}) {
+export default function App({ api_key, test }) {
   const typewriterRef = useRef(null);
   const dreamTypeRef = useRef(null);
+  // const conseilRef = useRef(null);
   const [gender, setGender] = useState("");
   const [dreamType, setDreamType] = useState("");
   const [description, setDescription] = useState("");
@@ -41,6 +44,9 @@ export default function App({api_key, test}) {
       const dreamTypeWriter = new Typewriter(dreamTypeRef.current, {
         delay: 1,
       });
+      // const conseilWriter = new Typewriter(conseilRef.current, {
+      //   delay: 1,
+      // });
 
       typewriter
         .pauseFor(0) // Pause for 1 second before starting
@@ -52,6 +58,14 @@ export default function App({api_key, test}) {
         .typeString(result?.cauchemar ? "Cauchemar" : "Bon rêve") // Text to be typed
         .start(); // Start the typewriter animation
 
+      // conseilWriter
+      //   .pauseFor(0) // Pause for 1 second before starting
+      //   .typeString(
+      //     result?.conseil
+      //       ? result?.conseil
+      //       : "Je n'ai aucun conseil à vous donner pour le moment."
+      //   ) // Text to be typed
+      //   .start(); // Start the typewriter animation
       return () => {
         // Cleanup if necessary
         typewriter.stop(); // Stop the typewriter animation
@@ -78,12 +92,18 @@ export default function App({api_key, test}) {
             role: "user",
             content: `
             Récupérez le contenu émotionnel de mon rêve,
-            puis agissez en tant que médium pour prédire mon avenir:
-            Ajoutez ces options json :
-             - "interpretation" : commencera par "après avoir analysé votre rêve, voici ce qui se passera dans votre avenir.", faites une assez longue interpretation
+            puis agissez en tant que médium. Si c'est un cauchemar, interprete juste, mais si c'est le contraire , predis l'avenir venant du rêve :
+            La reponse est un string json avec les fields :
+             - "interpretation" : Faites une assez longue interpretation
              - "cauchemar" :  booleen qui indiquera si c'est un cauchemar ou pas
              - "emotions" : les emotions venant du reve
-             Voici mon rêve : ${description}
+             Mes informations personnelles sont : 
+             - nom : ${firstname} ${lastname}
+             - age : ${dreamType}
+             - genre : ${gender}
+             Voici mon rêve : "${description}"
+             Si le rêve est un cauchemar, ajoute un option json :
+             - "conseil" : Une phrase disant de contacter un docteur professionnel
               `,
           },
         ],
@@ -94,8 +114,7 @@ export default function App({api_key, test}) {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              `Bearer ${api_key}`,
+            Authorization: `Bearer ${api_key}`,
           },
           body: JSON.stringify(data),
         });
@@ -103,16 +122,20 @@ export default function App({api_key, test}) {
         const result = await response.json();
         setLoadingResult(false);
         // console.log(result);
+        console.log(result)
+
         try {
           const message = result.choices[0].message;
           const content = JSON.parse(message.content);
           const interpretation = content.interpretation;
           const cauchemar = content.cauchemar;
           const emotions = content.emotions;
+          const conseil = content.conseil;
           setResult({
             interpretation: interpretation,
             cauchemar: cauchemar,
             emotions: emotions,
+            conseil: conseil,
           });
         } catch (err) {}
       } catch (error) {
@@ -151,7 +174,7 @@ export default function App({api_key, test}) {
                   setGender(GENDERS.HOMME);
                 }}
                 className={`gender-selector-select ${
-                  gender === GENDERS.HOMME ? "btn btn-success" : "btn btn-light"
+                  gender === GENDERS.HOMME ? "btn btn-dark" : "btn btn-light"
                 }`}
               >
                 Homme
@@ -161,7 +184,7 @@ export default function App({api_key, test}) {
                   setGender(GENDERS.FEMME);
                 }}
                 className={`gender-selector-select ${
-                  gender === GENDERS.FEMME ? "btn btn-success" : "btn btn-light"
+                  gender === GENDERS.FEMME ? "btn btn-dark" : "btn btn-light"
                 }`}
               >
                 Femme
@@ -199,7 +222,7 @@ export default function App({api_key, test}) {
                 }}
                 className={`gender-selector-select ${
                   dreamType === DREAM_TYPES.GOOD_DREAM
-                    ? "btn btn-success"
+                    ? "btn btn-dark"
                     : "btn btn-light"
                 }`}
               >
@@ -211,7 +234,7 @@ export default function App({api_key, test}) {
                 }}
                 className={`gender-selector-select ${
                   dreamType === DREAM_TYPES.BAD_DREAM
-                    ? "btn btn-success"
+                    ? "btn btn-dark"
                     : "btn btn-light"
                 }`}
               >
@@ -305,7 +328,13 @@ export default function App({api_key, test}) {
     {
       label: "Racontez votre reve",
       content: (
-        <div style={{}} data-aos="fade-right">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+          data-aos="fade-right"
+        >
           <Div>
             <h5>Racontez votre rêve ({description.length}/400)</h5>
             <textarea
@@ -326,9 +355,18 @@ export default function App({api_key, test}) {
               autour de moi, me faisant frissonner d'angoisse. Des murmures
               lugubres et des cris stridents résonnent dans l'obscurité. Je me
               sens piégé dans un labyrinthe sans fin, poursuivi par mes pires
-              peurs. Chaque pas est un combat contre l'horreur, mon cœur bat la
-              chamade. Je me réveille en sueur, soulagé que ce ne soit qu'un
+              peurs. Je me réveille en sueur, soulagé que ce ne soit qu'un
               cauchemar.
+            </small>
+            <br />
+            <br />
+            <small>
+              Exemple 2 : Je me trouve sur une plage immaculée, les vagues
+              caressant doucement mes pieds nus. Le soleil brille intensément,
+              réchauffant ma peau, tandis que je me promène, rempli d'une
+              tranquillité profonde. Le parfum salé de l'océan et le murmure
+              apaisant des vagues m'enveloppent, me transportant dans un état de
+              bonheur pur et d'émerveillement.
             </small>
           </Div>
         </div>
@@ -351,7 +389,12 @@ export default function App({api_key, test}) {
       <Layout>
         <Div
           className="cs-hero cs-style1 cs-bg cs-fixed_bg cs-shape_wrap_1"
-          style={{ backgroundImage: `url(/images/hero_bg.jpeg)` }}
+          style={
+            {
+              // backgroundImage: `url(/images/hero_bg.jpeg)`,
+              // backgroundColor: 'black'
+            }
+          }
         >
           <Div className="cs-shape_1" />
           <Div className="cs-shape_1" />
@@ -360,11 +403,27 @@ export default function App({api_key, test}) {
             {!loadingResult && !result && (
               <>
                 <Div className="cs-hero_text">
-                  <h3 className="cs-hero_title" data-aos="fade-right">
-                    {"Décrivez votre rêve"}
-                  </h3>
+                  <h4
+                    className="cs-hero_title"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                    data-aos="fade-right"
+                  >
+                    Décrivez Votre
+                    <div
+                      style={{
+                        color: "#FF4A17",
+                      }}
+                    >
+                      rêve
+                    </div>
+                  </h4>
                   {FORMULAIRE[currentIndex].content}
-                  <Spacing lg="50" md="50" />
+                  <Spacing lg="40" md="40" />
                   {currentIndex < FORMULAIRE.length - 1 ? (
                     <Div
                       className="col-sm-12"
@@ -380,7 +439,7 @@ export default function App({api_key, test}) {
                           display: currentIndex > 0 ? "block" : "none",
                         }}
                         onClick={() => {
-                          setCurrentIndex(currentIndex - 1)
+                          setCurrentIndex(currentIndex - 1);
                         }}
                       >
                         <Icon icon="bi:arrow-left" />
@@ -422,7 +481,7 @@ export default function App({api_key, test}) {
                           <span>Retour</span>
                         </button>
                         <button
-                          className="cs-btn cs-style1 btn btn-success"
+                          className="cs-btn cs-style1 btn btn-dark"
                           style={{
                             borderRadius: 0,
                             backgroundColor: "green",
@@ -462,36 +521,95 @@ export default function App({api_key, test}) {
             )}
 
             {result && (
-              <Div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  minHeight: "50vh",
-                  flexDirection: "column",
-                }}
-              >
-                <div
+              <>
+                <Div
                   style={{
                     display: "flex",
-                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    minHeight: "50vh",
+                    flexDirection: "column",
                   }}
                 >
-                  <h5
+                  <div
                     style={{
-                      marginRight: 15,
+                      display: "flex",
+                      flexDirection: "row",
                     }}
                   >
-                    Type de rêve :
-                  </h5>
-                  <div ref={dreamTypeRef} />
-                </div>
-                <br />
-                <h5>Interpretation de votre rêve</h5>
-                <div style={{
-                  lineHeight: 1.7,
-                }} ref={typewriterRef} />
-              </Div>
+                    <h2 style={{
+                      color: '#FF4A17'
+                    }}>Resultats</h2>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                    }}
+                  >
+                    <h5
+                      style={{
+                        marginRight: 15,
+                      }}
+                    >
+                      Nom du sujet :
+                    </h5>
+                    <div>
+                      {firstname} {lastname}
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                    }}
+                  >
+                    <h5
+                      style={{
+                        marginRight: 15,
+                      }}
+                    >
+                      Genre :
+                    </h5>
+                    <div>{gender}</div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                    }}
+                  >
+                    <h5
+                      style={{
+                        marginRight: 15,
+                      }}
+                    >
+                      Type de rêve :
+                    </h5>
+                    <div ref={dreamTypeRef} />
+                  </div>
+                  <h4>Interpretation du rêve</h4>
+                  <div
+                    style={{
+                      lineHeight: 1.7,
+                      maxWidth: "75ch",
+                    }}
+                    ref={typewriterRef}
+                  />
+                  <br />
+                  <h4>Conseils</h4>
+                  <small
+                    style={{
+                      lineHeight: 1.7,
+                      maxWidth: "75ch",
+                    }}
+                  >
+                    {result?.conseil
+                      ? result.conseil
+                      : "Je n'ai aucun conseil à vous donner pour le moment."}
+                  </small>
+                </Div>
+              </>
             )}
           </Div>
         </Div>

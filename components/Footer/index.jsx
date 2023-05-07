@@ -45,24 +45,25 @@ export default function Footer({ copyrightText, logoSrc, logoAlt, text }) {
             <Div className="col-lg-3 col-sm-6">
               <Div className="cs-footer_item">
                 <TextWidget
-                  logoSrc="/images/footer_logo.svg"
+                  // logoSrc="/images/footer_logo.svg"
+                  logo={<h4>At-Hack Xperience</h4>}
                   logoAlt="Logo"
-                  text="Welcome to arino sed ut perspiciae omunde omnis iste natus error sitort voluptatem accusantium."
+                  text="N'hesitez pas à nous contacter pour nous poser vos questions"
                 />
                 <SocialWidget />
               </Div>
             </Div>
-            <Div className="col-lg-3 col-sm-6">
+            {/* <Div className="col-lg-3 col-sm-6">
               <Div className="cs-footer_item">
                 <MenuWidget menuItems={serviceMenu} menuHeading="Services" />
               </Div>
-            </Div>
+            </Div> */}
             <Div className="col-lg-3 col-sm-6">
               <Div className="cs-footer_item">
-                <ContactInfoWidget title="Contact Us" />
+                <ContactInfoWidget title="Contactez-nous" />
               </Div>
             </Div>
-            <Div className="col-lg-3 col-sm-6">
+            {/* <Div className="col-lg-3 col-sm-6">
               <Div className="cs-footer_item">
                 <Newsletter
                   title="Subscribe"
@@ -70,14 +71,14 @@ export default function Footer({ copyrightText, logoSrc, logoAlt, text }) {
                   placeholder="example@gmail.com"
                 />
               </Div>
-            </Div>
+            </Div> */}
           </Div>
         </Div>
       </Div>
       <Div className="container">
         <Div className="cs-bottom_footer">
           <Div className="cs-bottom_footer_left">
-            <Div className="cs-copyright">Copyright © 2022 Laralink.</Div>
+            <Div className="cs-copyright">Copyright © 2023 At-Hack.</Div>
           </Div>
           <Div className="cs-bottom_footer_right">
             <MenuWidget menuItems={copyrightLinks} variant=" cs-style2" />

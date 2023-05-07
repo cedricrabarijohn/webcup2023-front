@@ -37,14 +37,14 @@ export default function Hero({
           <Div className="cs-shape_1" />
           <Div className="container">
             <Div className="cs-hero_text">
-              <h1 className="cs-hero_title">{parse(title)}</h1>
+              <h1 className="cs-hero_title" data-aos="fade-right">{parse(title)}</h1>
               <Spacing lg="90" md="45" />
               <Div className="cs-hero_info">
                 <Div>
-                  <Button btnLink={btnLink} btnText={btnText} />
+                  <Button btnLink={btnLink} btnText={btnText} data-aos="fade-right" />
                 </Div>
                 <Div>
-                  <Div className="cs-hero_subtitle">{subtitle}</Div>
+                  <Div className="cs-hero_subtitle" data-aos="fade-left">{subtitle}</Div>
                 </Div>
               </Div>
             </Div>

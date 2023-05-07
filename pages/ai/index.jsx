@@ -2,7 +2,8 @@ import Div from '../../components/Div';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import Word from "../../components/Word";
-import { useState } from "react";
+import React, { useRef,useState } from "react";
+import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax'
 
 const CustomCursor = dynamic(
     () => {
@@ -16,14 +17,16 @@ export default function AI() {
     const [valiny] = useState("Valiny");
     const [clicked, setClicked] = useState(false);
 
+    const ref = useRef();
+
     const hello = ()=>{
-        let sphere = document.getElementById("sphere");
-        if(!clicked){
-            sphere.style = "animation: slide-left 1000ms forwards;"; 
-        } else {
-            sphere.style = "animation: slide-restore 1000ms forwards;";
-        }
-        setClicked(!clicked);
+        // let sphere = document.getElementById("sphere");
+        // if(!clicked){
+        //     sphere.style = "animation: slide-left 1000ms forwards;"; 
+        // } else {
+        //     sphere.style = "animation: slide-restore 1000ms forwards;";
+        // }
+        // setClicked(!clicked);
     }
 
     return(
@@ -35,19 +38,48 @@ export default function AI() {
             </Head>
             <CustomCursor />
             
-            <Div className="onirix" >
-                <Div className="bg-image"></Div>
-                <Div id="sphere" className="sphere">
+            <Parallax pages={4} ref={ref}>
+                <ParallaxLayer
+                    style={{
+                        background: `linear-gradient(180deg, #2b2e4a 0%, #1f2233 100%)`,
+                    }}
+                    speed={0.5}
+                    factor={3}
+                >
+                </ParallaxLayer>
+
+                <ParallaxLayer
+                    sticky={{start:0, end:3}}
+                    onClick={()=>ref.current.scrollTo(2)}
+                >
+                    <Div className="sphere">
+                        <Word word={word} predict={hello}/>
+                    </Div>
+                </ParallaxLayer>
+
+                <ParallaxLayer
+                    offset={2}
+                    style={{
+                        background: `linear-gradient(180deg, #0c0d20 0%, #4f4f4f 50%, #1e1e1e 100%)`,
+                    }}
+                    speed={0.5}
+                    factor={3}
+                >
+                    
+                </ParallaxLayer>
+            </Parallax>
+            {/* <Div id="onirix" className="onirix"> */}
+                
+                {/* <Div id="sphere" className="sphere">
                     <Word word={word} predict={hello}/>
-                    {/* <Word word={word} predict={hello}/> */}
-                </Div>
-                {clicked && (
+                </Div> */}
+                {/* {clicked && (
                     <Div className="answer">
                         <h5 className='text-center'>Prediction de votre reve</h5>
                         <p>{valiny}</p> 
                     </Div>
-                )}
-            </Div>
+                )} */}
+            {/* </Div> */}
         </>
     )
 }

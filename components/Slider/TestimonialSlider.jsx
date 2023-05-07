@@ -9,28 +9,28 @@ export default function TestimonialSlider() {
   const [nav2, setNav2] = useState();
   const testimonialData = [
     {
-      testimonialThumb: "/images/testimonial_1.jpeg",
+      testimonialThumb: "/images/comments/1.webp",
       testimonialText: `J'ai été époustouflé par les prédictions précises de Onirix d'At-Hack XPerience. C'est vraiment incroyable de voir à quel point cet outil peut décoder et interpréter mes rêves ! Bravo à toute l'équipe pour cette expérience unique !"`,
       avatarName: "Anthony C.",
       avatarDesignation: "Menuisier",
       ratings: "4",
     },
     {
-      testimonialThumb: "/images/testimonial_2.jpeg",
+      testimonialThumb: "/images/comments/2.png",
       testimonialText: `Je suis enchanté par l'outil Onirix d'At-Hack XPerience. Grâce à cette IA, j'ai pu explorer mes rêves de manière totalement nouvelle et en apprendre davantage sur moi-même. Une innovation révolutionnaire !`,
       avatarName: "Marc D.",
       avatarDesignation: "DG Inviso",
       ratings: "5",
     },
     {
-      testimonialThumb: "/images/testimonial_3.jpeg",
+      testimonialThumb: "/images/comments/4.png",
       testimonialText: `At-Hack XPerience a vraiment repoussé les limites avec Onirix. Les prédictions de rêves étaient étonnamment précises, et cela a ouvert de nouvelles perspectives sur ma vie et mes aspirations. Je recommande vivement cet outil !`,
       avatarName: "Sophie L.",
-      avatarDesignation: "Docteur",
+      avatarDesignation: "Infirmière",
       ratings: "4.5",
     },
     {
-      testimonialThumb: "/images/testimonial_1.jpeg",
+      testimonialThumb: "/images/comments/3.png",
       testimonialText: `Onirix d'At-Hack XPerience a apporté une dimension captivante à ma compréhension des rêves. Cet outil m'a permis d'explorer les recoins de mon subconscient et d'en tirer des enseignements précieux. Une expérience inoubliable !"`,
       avatarName: "Thomas G.",
       avatarDesignation: "Ingénieur en informatique",

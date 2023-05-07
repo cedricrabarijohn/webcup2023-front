@@ -42,7 +42,7 @@ export default function Blog() {
       href: '/blog/blog-details',
     },
     {
-      thumb: '/images/post_7.jpeg',
+      thumb: '/images/symbole.jfif',
       title: 'Les symboles communs dans les rêves et leur signification',
       subtitle:
       "Certains symboles apparaissent fréquemment dans les rêves et peuvent avoir des significations universelles ou individuelles. Découvrez les symboles les plus courants et leur interprétation générale, tout en gardant à l'esprit que chaque rêve est unique et doit être interprété en fonction de votre contexte personnel.",
@@ -52,7 +52,7 @@ export default function Blog() {
       href: '/blog/blog-details',
       },
       {
-      thumb: '/images/post_8.jpeg',
+      thumb: '/images/resolution.jfif',
       title: 'Le rôle des rêves dans la résolution des problèmes',
       subtitle:
       "Les rêves peuvent jouer un rôle important dans la résolution de problèmes complexes, en nous aidant à explorer de nouvelles idées et à trouver des solutions créatives. Apprenez comment exploiter le pouvoir de vos rêves pour résoudre les problèmes et prendre des décisions éclairées dans votre vie quotidienne.",

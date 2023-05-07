@@ -4,13 +4,68 @@ import Newsletter from "../Widget/Newsletter";
 import ContactInfoWidget from "../Widget/ContactInfoWidget";
 import Div from "../Div";
 import DropDown from "./DropDown";
-import Link from "next/link";
 import Head from "next/head";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Header({ variant }) {
   const [isSticky, setIsSticky] = useState(false);
   const [sideHeaderToggle, setSideHeaderToggle] = useState(false);
   const [mobileToggle, setMobileToggle] = useState(false);
+
+
+  const router = useRouter();
+
+  const dataArray = [
+    {
+      key1: 'value1',
+      key2: 'value2',
+      thumb: '/images/OIG.jfif',
+      title: 'ejfbejf',
+      subtitle: 'wjbfjefb',
+      date: 'jwbjfdwbfw',
+      category: 'dkwbfkwbf',
+      categoryHref: 'wjbfwjf',
+      href: 'bgjdbjg',
+    },
+    {
+      key1: 'value11',
+      key2: 'value22',
+      thumb: '/images/OIG.jfif',
+      title: 'ejfbejf2',
+      subtitle: 'wjbfjefb',
+      date: 'jwbjfdwbfw',
+      category: 'dkwbfkwbf',
+      categoryHref: 'wjbfwjf',
+      href: 'bgjdbjg',
+    },
+    {
+      key1: 'value13',
+      key2: 'value23',
+      thumb: '/images/OIG.jfif',
+      title: 'ejfbejf3',
+      subtitle: 'wjbfjefb3',
+      date: 'jwbjfdwbfw',
+      category: 'dkwbfkwbf',
+      categoryHref: 'wjbfwjf',
+      href: 'bgjdbjg',
+    },
+    // Add more objects here if needed
+  ];
+
+
+  const handleClick = (e, dataToSend) => {
+    e.preventDefault();
+    setMobileToggle(false);
+    router.push({
+      pathname: '/info',
+      query: dataToSend,
+    });
+  };
+  
+
+  
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
@@ -48,71 +103,28 @@ export default function Header({ variant }) {
                     className="cs-nav_list"
                     style={{ display: `${mobileToggle ? "block" : "none"}` }}
                   >
-                    {/* <li className="menu-item-has-children">
+                     <li className="menu-item-has-children">
                       <Link href="/" onClick={() => setMobileToggle(false)}>
-                        Home
+                        Disctionaire de reve 
                       </Link>
                       <DropDown>
                         <ul>
+                        {dataArray.map((data, index) => (
                           <li>
-                            <Link
-                              href="/"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Main Home
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="photography-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Photography Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="creative-portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Creative Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="digital-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Digital Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="marketing-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Marketing Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="showcase-portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Showcase Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              href="case-study-showcase"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Case Study Showcase
-                            </Link>
-                          </li>
+                              <a
+                                key={index}
+                                href="/info"
+                                className="commencer"
+                                style={{ borderRadius: 20 }}
+                                onClick={(e) => handleClick(e, data)}
+                              >
+                                {data.title}
+                              </a>
+                            </li>
+                          ))}
                         </ul>
                       </DropDown>
-                    </li> */}
+                    </li> 
                      <li>
                       <a href="/" onClick={() => setMobileToggle(false)}>
                         Accueil
@@ -254,6 +266,7 @@ export default function Header({ variant }) {
                       </DropDown>
                     </li> */}
                     <li>
+                       
                       <a href="app" className="commencer" style={{
                         borderRadius: 20
                       }} onClick={() => setMobileToggle(false)}>
@@ -263,6 +276,7 @@ export default function Header({ variant }) {
                     <li>
                       <a href="blog" className="commencer" style={{ borderRadius: 20 }} onClick={() => setMobileToggle(false)}> Blog </a>
                     </li>
+                   
                     <li>
                       <a href="/ai" onClick={() => setMobileToggle(false)}>
                         Onirix

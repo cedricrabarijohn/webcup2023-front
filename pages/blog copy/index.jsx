@@ -1,0 +1,130 @@
+import Head from 'next/head';
+import React from 'react';
+import Cta from '../../components/Cta';
+import Div from '../../components/Div';
+import Layout from '../../components/Layout';
+import PageHeading from '../../components/PageHeading';
+import Pagination from '../../components/Pagination';
+import PostStyle2 from '../../components/Post/PostStyle2';
+import Sidebar from '../../components/Sidebar.jsx/index.jsx';
+import Spacing from '../../components/Spacing';
+
+export default function Blog() {
+  const postData = [
+    {
+      thumb: '/images/OIG.jfif',
+      title: 'Les rêves et leur signification : une introduction',
+      subtitle:
+        "Les rêves sont une manifestation naturelle de notre esprit durant le sommeil. Ils peuvent être influencés par nos expériences, nos émotions et nos désirs. Apprendre à les interpréter peut nous aider à mieux nous connaître et à résoudre certains problèmes de notre vie quotidienne. Découvrez les bases de l'interprétation des rêves et comment vous pouvez en tirer des enseignements précieux.",
+      date: '07 Mar 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+    },
+    {
+      thumb: '/images/recurrent.jfif',
+      title: "Rêves récurrents : pourquoi nous reviennent-ils et comment les comprendre ?",
+      subtitle:
+        "Les rêves récurrents sont ceux qui se répètent fréquemment avec des thèmes, des scénarios ou des personnages similaires. Ils peuvent être le signe d'un problème non résolu ou d'une situation qui requiert notre attention. Apprenez à identifier les causes de vos rêves récurrents et à comprendre leur signification pour vous aider à résoudre les problèmes sous-jacents et à améliorer votre bien-être.",
+      date: '05 Mar 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+    },
+    {
+      thumb: '/images/profit.jfif',
+      title: 'Rêves lucides : comment les provoquer et en tirer profit',
+      subtitle:
+        "Les rêves lucides sont des rêves dans lesquels nous sommes conscients que nous rêvons et avons le contrôle sur notre environnement onirique. Ils peuvent être une source d'inspiration, de créativité et d'apprentissage personnel. Découvrez les techniques pour induire des rêves lucides et comment les exploiter pour améliorer votre vie éveillée.",
+      date: '04 Mar 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+    },
+    {
+      thumb: '/images/symbole.jfif',
+      title: 'Les symboles communs dans les rêves et leur signification',
+      subtitle:
+      "Certains symboles apparaissent fréquemment dans les rêves et peuvent avoir des significations universelles ou individuelles. Découvrez les symboles les plus courants et leur interprétation générale, tout en gardant à l'esprit que chaque rêve est unique et doit être interprété en fonction de votre contexte personnel.",
+      date: '03 Mar 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+      },
+      {
+      thumb: '/images/resolution.jfif',
+      title: 'Le rôle des rêves dans la résolution des problèmes',
+      subtitle:
+      "Les rêves peuvent jouer un rôle important dans la résolution de problèmes complexes, en nous aidant à explorer de nouvelles idées et à trouver des solutions créatives. Apprenez comment exploiter le pouvoir de vos rêves pour résoudre les problèmes et prendre des décisions éclairées dans votre vie quotidienne.",
+      date: '01 Mar 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+      },
+      {
+      thumb: '/images/cauchemar.jfif',
+      title: 'Cauchemars et terreurs nocturnes : causes et comment les gérer',
+      subtitle:
+      "Les cauchemars et les terreurs nocturnes peuvent perturber notre sommeil et nous laisser anxieux ou épuisés. Comprendre les causes et les différences entre ces deux phénomènes peut nous aider à les gérer et à améliorer notre qualité de sommeil. Découvrez les techniques pour faire face aux cauchemars et aux terreurs nocturnes et retrouver un sommeil paisible.",
+      date: '28 Feb 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+      },
+      {
+      thumb: '/images/mythe.jfif',
+      title: "Rêves prémonitoires : mythe ou réalité ?",
+      subtitle:
+      "Certains rêves semblent prédire des événements futurs, suscitant des questions sur la nature de la réalité et les capacités de notre esprit. Examinons les témoignages, les études scientifiques et les explications possibles pour les rêves prémonitoires afin de mieux comprendre ce phénomène fascinant.",
+      date: '26 Feb 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+      },
+  ];
+  return (
+    <>
+      <Head>
+        <title>Blog</title>
+        <meta name="description" content="Generated by create next app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Layout>
+        <PageHeading
+          title="Notre blog"
+          bgSrc="/images/blog_hero_bg.jpeg"
+          pageLinkText="Blog"
+        />
+        <Spacing lg="150" md="80" />
+        <Div className="container">
+          <Div className="row">
+            <Div className="col-lg-8">
+              {postData.map((item, index) => (
+                <Div key={index}>
+                  <PostStyle2
+                    thumb={item.thumb}
+                    title={item.title}
+                    subtitle={item.subtitle}
+                    date={item.date}
+                    category={item.category}
+                    categoryHref={item.categoryHref}
+                    href={item.href}
+                  />
+                  {postData.length > index + 1 && <Spacing lg="95" md="60" />}
+                </Div>
+              ))}
+              <Spacing lg="60" md="40" />
+              <Pagination />
+            </Div>
+            <Div className="col-xl-3 col-lg-4 offset-xl-1">
+              <Spacing lg="0" md="80" />
+              <Sidebar />
+            </Div>
+          </Div>
+        </Div>
+        <Spacing lg="150" md="80" />
+        
+      </Layout>
+    </>
+  );
+}

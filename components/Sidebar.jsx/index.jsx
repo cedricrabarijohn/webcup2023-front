@@ -9,113 +9,109 @@ import TagWidget from '../Widget/TagWidget'
 export default function Sidebar() {
   const tagData = [
     {
-      title: 'Business',
-      url:'/'
+    title: 'Psychologie',
+    url: '/',
     },
     {
-      title: 'Agency',
-      url:'/'
+    title: 'Rêves',
+    url: '/',
     },
     {
-      title: 'Artwork',
-      url:'/'
+    title: 'Interprétation',
+    url: '/',
     },
     {
-      title: 'Marketing',
-      url:'/'
+    title: 'Cauchemars',
+    url: '/',
     },
     {
-      title: 'Information',
-      url:'/'
+    title: 'Rêves lucides',
+    url: '/',
     },
     {
-      title: 'Design',
-      url:'/'
+    title: 'Rêves récurrents',
+    url: '/',
     },
     {
-      title: 'Wordpress',
-      url:'/'
+    title: 'Symboles',
+    url: '/',
     },
-  ]
-  const archiveData = [
+    ];
+    
+    const archiveData = [
     {
-      title: 'Archives',
-      url:'/'
-    },
-    {
-      title: '15 Aug 2022',
-      url:'/'
+    title: 'Archives',
+    url: '/',
     },
     {
-      title: '20 Sep 2021',
-      url:'/'
+    title: '07 Mar 2022',
+    url: '/',
     },
     {
-      title: '11 Dec 2020',
-      url:'/'
+    title: '05 Mar 2022',
+    url: '/',
     },
     {
-      title: '25 jun 2020',
-      url:'/'
-    }
-  ]
-  const categoryData = [
-    {
-      title: 'Corporate',
-      url:'/'
+    title: '04 Mar 2022',
+    url: '/',
     },
     {
-      title: 'Company',
-      url:'/'
+    title: '03 Mar 2022',
+    url: '/',
+    },
+    ];
+    
+    const categoryData = [
+    {
+    title: 'Psychologie du sommeil',
+    url: '/',
     },
     {
-      title: 'Search Engine',
-      url:'/'
+    title: 'Types de rêves',
+    url: '/',
     },
     {
-      title: 'Information',
-      url:'/'
+    title: 'Techniques de rêve lucide',
+    url: '/',
     },
     {
-      title: 'Painting',
-      url:'/'
-    }
-  ]
-  const recentPostData = [
-    {
-      title: 'How to studio setup...',
-      thumb: '/images/recent_post_1.jpeg',
-      href: '/blog/blog-details',
-      date: '15 Aug 2022'
+    title: 'Gestion des cauchemars',
+    url: '/',
     },
     {
-      title: 'Creative people mind...',
-      thumb: '/images/recent_post_2.jpeg',
-      href: '/blog/blog-details',
-      date: '14 Aug 2022'
+    title: 'Résolution de problèmes',
+    url: '/',
+    },
+    ];
+    
+    const recentPostData = [
+    {
+    title: 'Les rêves et leur signification : une introduction',
+    thumb: '/images/recent_post_1.jpeg',
+    href: '/blog/blog-details',
+    date: '07 Mar 2022',
     },
     {
-      title: 'AI take over human...',
-      thumb: '/images/recent_post_3.jpeg',
-      href: '/blog/blog-details',
-      date: '13 Aug 2022'
+    title: "Rêves récurrents : pourquoi nous reviennent-ils et comment les comprendre ?",
+    thumb: '/images/recent_post_2.jpeg',
+    href: '/blog/blog-details',
+    date: '05 Mar 2022',
     },
     {
-      title: 'You should now add...',
-      thumb: '/images/recent_post_4.jpeg',
-      href: '/blog/blog-details',
-      date: '12 Aug 2022'
+    title: 'Rêves lucides : comment les provoquer et en tirer profit',
+    thumb: '/images/recent_post_3.jpeg',
+    href: '/blog/blog-details',
+    date: '04 Mar 2022',
     },
-  ]
+    {
+    title: 'Les symboles communs dans les rêves et leur signification',
+    thumb: '/images/recent_post_4.jpeg',
+    href: '/blog/blog-details',
+    date: '03 Mar 2022',
+    },
+    ];
   return (
     <>
-      <Div className="cs-sidebar_item">
-        <AuthorWidget 
-          src='/images/avatar_1.png'
-          name='Kuber Jontra' 
-          description='At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.'
-        />
-      </Div>
       <Div className="cs-sidebar_item">
         <SearchWidget title='Search'/>
       </Div>

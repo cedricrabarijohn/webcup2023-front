@@ -261,6 +261,9 @@ export default function Header({ variant }) {
                       </a>
                     </li>
                     <li>
+                      <a href="blog" className="commencer" style={{ borderRadius: 20 }} onClick={() => setMobileToggle(false)}> Blog </a>
+                    </li>
+                    <li>
                       <a href="/ai" onClick={() => setMobileToggle(false)}>
                         Onirix
                       </a>

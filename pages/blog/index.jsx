@@ -13,34 +13,73 @@ export default function Blog() {
   const postData = [
     {
       thumb: '/images/post_4.jpeg',
-      title: 'A.I will take all human job within next year',
+      title: 'Les rêves et leur signification : une introduction',
       subtitle:
-        'Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Tortor posuere ac ut consequat semper viverra nam libero justo. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Purus sit amet luctus venenatis lectus. Nunc aliquet bibendum enim facilisis. Pretium viverra suspendisse potenti nullam ac tortor vitae.',
+        "Les rêves sont une manifestation naturelle de notre esprit durant le sommeil. Ils peuvent être influencés par nos expériences, nos émotions et nos désirs. Apprendre à les interpréter peut nous aider à mieux nous connaître et à résoudre certains problèmes de notre vie quotidienne. Découvrez les bases de l'interprétation des rêves et comment vous pouvez en tirer des enseignements précieux.",
       date: '07 Mar 2022',
-      category: 'Tech',
+      category: 'Psychologie',
       categoryHref: '/blog',
       href: '/blog/blog-details',
     },
     {
       thumb: '/images/post_5.jpeg',
-      title: 'Creative studio programm coming soon',
+      title: "Rêves récurrents : pourquoi nous reviennent-ils et comment les comprendre ?",
       subtitle:
-        'Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Tortor posuere ac ut consequat semper viverra nam libero justo. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Purus sit amet luctus venenatis lectus. Nunc aliquet bibendum enim facilisis. Pretium viverra suspendisse potenti nullam ac tortor vitae.',
+        "Les rêves récurrents sont ceux qui se répètent fréquemment avec des thèmes, des scénarios ou des personnages similaires. Ils peuvent être le signe d'un problème non résolu ou d'une situation qui requiert notre attention. Apprenez à identifier les causes de vos rêves récurrents et à comprendre leur signification pour vous aider à résoudre les problèmes sous-jacents et à améliorer votre bien-être.",
       date: '05 Mar 2022',
-      category: 'Photography',
+      category: 'Psychologie',
       categoryHref: '/blog',
       href: '/blog/blog-details',
     },
     {
       thumb: '/images/post_6.jpeg',
-      title: 'Artistic mind will be great for creation',
+      title: 'Rêves lucides : comment les provoquer et en tirer profit',
       subtitle:
-        'Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Tortor posuere ac ut consequat semper viverra nam libero justo. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Purus sit amet luctus venenatis lectus. Nunc aliquet bibendum enim facilisis. Pretium viverra suspendisse potenti nullam ac tortor vitae.',
+        "Les rêves lucides sont des rêves dans lesquels nous sommes conscients que nous rêvons et avons le contrôle sur notre environnement onirique. Ils peuvent être une source d'inspiration, de créativité et d'apprentissage personnel. Découvrez les techniques pour induire des rêves lucides et comment les exploiter pour améliorer votre vie éveillée.",
       date: '04 Mar 2022',
-      category: 'Tech',
+      category: 'Psychologie',
       categoryHref: '/blog',
       href: '/blog/blog-details',
-    },
+    },{
+      thumb: '/images/post_7.jpeg',
+      title: 'Les symboles communs dans les rêves et leur signification',
+      subtitle:
+      "Certains symboles apparaissent fréquemment dans les rêves et peuvent avoir des significations universelles ou individuelles. Découvrez les symboles les plus courants et leur interprétation générale, tout en gardant à l'esprit que chaque rêve est unique et doit être interprété en fonction de votre contexte personnel.",
+      date: '03 Mar 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+      },
+      {
+      thumb: '/images/post_8.jpeg',
+      title: 'Le rôle des rêves dans la résolution des problèmes',
+      subtitle:
+      "Les rêves peuvent jouer un rôle important dans la résolution de problèmes complexes, en nous aidant à explorer de nouvelles idées et à trouver des solutions créatives. Apprenez comment exploiter le pouvoir de vos rêves pour résoudre les problèmes et prendre des décisions éclairées dans votre vie quotidienne.",
+      date: '01 Mar 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+      },
+      {
+      thumb: '/images/post_9.jpeg',
+      title: 'Cauchemars et terreurs nocturnes : causes et comment les gérer',
+      subtitle:
+      "Les cauchemars et les terreurs nocturnes peuvent perturber notre sommeil et nous laisser anxieux ou épuisés. Comprendre les causes et les différences entre ces deux phénomènes peut nous aider à les gérer et à améliorer notre qualité de sommeil. Découvrez les techniques pour faire face aux cauchemars et aux terreurs nocturnes et retrouver un sommeil paisible.",
+      date: '28 Feb 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+      },
+      {
+      thumb: '/images/post_10.jpeg',
+      title: "Rêves prémonitoires : mythe ou réalité ?",
+      subtitle:
+      "Certains rêves semblent prédire des événements futurs, suscitant des questions sur la nature de la réalité et les capacités de notre esprit. Examinons les témoignages, les études scientifiques et les explications possibles pour les rêves prémonitoires afin de mieux comprendre ce phénomène fascinant.",
+      date: '26 Feb 2022',
+      category: 'Psychologie',
+      categoryHref: '/blog',
+      href: '/blog/blog-details',
+      },
   ];
   return (
     <>
@@ -51,7 +90,7 @@ export default function Blog() {
       </Head>
       <Layout>
         <PageHeading
-          title="Our Blog"
+          title="Notre blog"
           bgSrc="/images/blog_hero_bg.jpeg"
           pageLinkText="Blog"
         />
@@ -83,14 +122,7 @@ export default function Blog() {
           </Div>
         </Div>
         <Spacing lg="150" md="80" />
-        <Div className="container">
-          <Cta
-            title="Let’s disscuse make <br />something <i>cool</i> together"
-            btnText="Apply For Meeting"
-            btnLink="/contact"
-            bgSrc="/images/cta_bg.jpeg"
-          />
-        </Div>
+        
       </Layout>
     </>
   );

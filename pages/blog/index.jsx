@@ -12,7 +12,7 @@ import Spacing from '../../components/Spacing';
 export default function Blog() {
   const postData = [
     {
-      thumb: '/images/post_4.jpeg',
+      thumb: '/images/OIG.jfif',
       title: 'Les rêves et leur signification : une introduction',
       subtitle:
         "Les rêves sont une manifestation naturelle de notre esprit durant le sommeil. Ils peuvent être influencés par nos expériences, nos émotions et nos désirs. Apprendre à les interpréter peut nous aider à mieux nous connaître et à résoudre certains problèmes de notre vie quotidienne. Découvrez les bases de l'interprétation des rêves et comment vous pouvez en tirer des enseignements précieux.",

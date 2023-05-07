@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@iconify/react": "^4.1.0",
+    "@react-spring/parallax": "^9.7.2",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",

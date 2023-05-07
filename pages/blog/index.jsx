@@ -62,7 +62,7 @@ export default function Blog() {
       href: '/blog/blog-details',
       },
       {
-      thumb: '/images/post_9.jpeg',
+      thumb: '/images/cauchemar.jfif',
       title: 'Cauchemars et terreurs nocturnes : causes et comment les gérer',
       subtitle:
       "Les cauchemars et les terreurs nocturnes peuvent perturber notre sommeil et nous laisser anxieux ou épuisés. Comprendre les causes et les différences entre ces deux phénomènes peut nous aider à les gérer et à améliorer notre qualité de sommeil. Découvrez les techniques pour faire face aux cauchemars et aux terreurs nocturnes et retrouver un sommeil paisible.",
@@ -72,7 +72,7 @@ export default function Blog() {
       href: '/blog/blog-details',
       },
       {
-      thumb: '/images/post_10.jpeg',
+      thumb: '/images/mythe.jfif',
       title: "Rêves prémonitoires : mythe ou réalité ?",
       subtitle:
       "Certains rêves semblent prédire des événements futurs, suscitant des questions sur la nature de la réalité et les capacités de notre esprit. Examinons les témoignages, les études scientifiques et les explications possibles pour les rêves prémonitoires afin de mieux comprendre ce phénomène fascinant.",

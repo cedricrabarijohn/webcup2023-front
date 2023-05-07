@@ -27,7 +27,7 @@ export default function PostStyle2({
           <Link href={href}>{title}</Link>
         </h2>
         <Div className="cs-post_sub_title">{subtitle}</Div>
-        <Button btnLink={href} btnText="See More" />
+        
       </Div>
     </Div>
   );
